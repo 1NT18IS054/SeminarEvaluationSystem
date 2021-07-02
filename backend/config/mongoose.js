@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-//const db=mongodb+srv://Divya:divyabhat@cluster1.dqrgg.mongodb.net/myFirstDatabase?authSource=admin&replicaSet=atlas-l1gsn6-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGO_URL, {
