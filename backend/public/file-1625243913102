@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    int a[20],b[30],c[20],i,j,k,count,n;
+    int x,y,z;
+    printf("Enter frame size\n");
+    scanf("%d",&n);
+    printf("Enter the frame in the form of 0 and 1\n");
+    for(i=0; i<n; i++)
+        scanf("%d",&a[i]);
+    i=0;
+    count=1;
+    j=0;
+    while(i<n)
+    {
+        if(a[i]==1)
+        {
+            b[j]=a[i];
+            for(k=i+1; a[k]==1 && k<n && count<5; k++)
+            {
+                j++;
+                b[j]=a[k];
+                count++;
+                if(count==5)
+                {
+                    j++;
+                    b[j]=0;
+                    count=0;
+                }
+                i=k;
+            }
+        }
+        else
+        {
+            b[j]=a[i];
+        }
+        i++;
+        j++;
+    }
+    printf("After Bit Stuffing\n");
+    for(i=0; i<j; i++)
+        printf("%d ",b[i]);
+    printf("\nDecding\n");
+    count=1;
+    i=0;
+    x=0;
+    while(i<j){
+        if(b[i]==1){
+            c[x]=b[i];
+            for(k=i+1; b[k]==1 && k<n && count<5; k++)
+            {
+                x++;
+                c[x]=b[k];
+                count++;
+                if(count==5)
+                {
+                    k++;
+                    count=0;
+                }
+                i=k;
+            }
+        }
+        else
+        {
+            c[x]=b[i];
+        }
+        i++;
+        x++;
+    
+        }
+
+    for(z=0;z<n;z++){
+        printf("%d ",c[z]);
+    }
+
+    return 0;
+}
